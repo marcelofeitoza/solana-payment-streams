@@ -1,0 +1,12 @@
+---
+name: native-usdc-keeper-poc
+id: native-usdc-keeper-poc
+runbooks:
+  - name: deployment
+    description: Deploy the exact freshly built Pinocchio program to the offline Surfnet
+    location: surfpool/deployment
+environments:
+  localnet:
+    network_id: localnet
+    rpc_api_url: http://127.0.0.1:9910
+

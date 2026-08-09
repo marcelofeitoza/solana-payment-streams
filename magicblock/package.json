@@ -1,0 +1,25 @@
+{
+  "name": "solana-payment-streams-magicblock-client",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bootstrap-local-dlp": "tsx client/index.ts bootstrap-local-dlp",
+    "init-usdc": "tsx client/index.ts init-usdc",
+    "mint": "tsx client/index.ts mint",
+    "balances": "tsx client/index.ts balances",
+    "init-stream": "tsx client/index.ts init-stream",
+    "schedule": "tsx client/index.ts schedule",
+    "watch": "tsx client/index.ts watch",
+    "demo": "tsx client/index.ts demo"
+  },
+  "dependencies": {
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

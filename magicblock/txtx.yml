@@ -1,0 +1,14 @@
+---
+name: magicblock-usdc-crank-poc
+id: magicblock-usdc-crank-poc
+runbooks:
+  - name: deployment
+    description: Directly deploy the pinned DLP and Pinocchio stream program to Surfpool
+    location: runbooks/deployment
+  - name: dlp-authority
+    description: Assign the official local validator as DLP upgrade authority after deployment
+    location: runbooks/dlp-authority
+environments:
+  localnet:
+    network_id: localnet
+    rpc_api_url: http://127.0.0.1:9900

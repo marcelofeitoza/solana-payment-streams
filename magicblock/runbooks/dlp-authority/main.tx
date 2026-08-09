@@ -1,0 +1,15 @@
+// This is a separate runbook because setup_surfnet applies authority updates before deployments.
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "set_dlp_authority" "svm::setup_surfnet" {
+    description = "Make the official local validator the DLP admin"
+    rpc_api_url = input.rpc_api_url
+
+    set_program_authority {
+        program_id = "DELeGGvXpWV2fqJUhqcF5ZSYMS4JTLjteaAMARRSaeSh"
+        authority = "mAGicPQYBMvcYveUZA5F5UNNwyHvfYh5xkLS2Fr1mev"
+    }
+}

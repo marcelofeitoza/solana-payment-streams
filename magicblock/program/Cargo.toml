@@ -1,0 +1,28 @@
+[package]
+name = "magicblock-usdc-stream"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+logging = []
+
+[dependencies]
+ephemeral-rollups-pinocchio = { version = "0.16.2", features = ["intent-bundle"] }
+pinocchio = { version = "0.10.2", features = ["cpi", "copy"] }
+pinocchio-log = "0.5.1"
+pinocchio-pubkey = "0.3.0"
+pinocchio-system = "0.5.0"
+pinocchio-token = "0.5.0"
+
+[target.'cfg(not(any(target_os = "solana", target_arch = "bpf")))'.dependencies]
+solana-pubkey = { version = "4.1.0", features = ["curve25519"] }
+
+[lib]
+name = "magicblock_usdc_stream"
+crate-type = ["cdylib", "lib"]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }

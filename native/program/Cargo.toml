@@ -1,0 +1,26 @@
+[package]
+name = "native-usdc-stream-program"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+
+[dependencies]
+pinocchio = { version = "0.10.2", default-features = false, features = ["cpi", "copy"] }
+pinocchio-log = "0.5.1"
+pinocchio-pubkey = "0.3.0"
+pinocchio-system = "0.5.0"
+pinocchio-token = "0.5.0"
+
+[target.'cfg(not(any(target_os = "solana", target_arch = "bpf")))'.dependencies]
+solana-pubkey = { version = "4.1.0", features = ["curve25519"] }
+
+[lib]
+name = "native_usdc_stream_program"
+crate-type = ["cdylib", "lib"]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }

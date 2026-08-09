@@ -1,0 +1,17 @@
+# Fast, deterministic settings for the 10,000-iteration local proof.
+lifecycle = "ephemeral"
+
+[metrics]
+address = "127.0.0.1:19099"
+
+[validator]
+basefee = 0
+
+[ledger]
+block-time = "1ms"
+reset = true
+verify-keypair = false
+
+[task-scheduler]
+reset = true
+min-interval = "1ms"

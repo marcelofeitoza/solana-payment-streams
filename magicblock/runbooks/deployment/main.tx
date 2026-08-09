@@ -1,0 +1,32 @@
+// Surfpool Infrastructure-as-Code: deterministic local program deployment and validator funding.
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "install_magicblock_programs" "svm::setup_surfnet" {
+    description = "Install SPL Noop, the official DLP, and the Pinocchio stream program"
+    rpc_api_url = input.rpc_api_url
+
+    // MagicBlock v0.13.19 uses SPL Noop as a uniqueness instruction in every
+    // committor transaction. Surfpool is offline, so deploy it explicitly.
+    deploy_program {
+        program_id = "noopb9bkMVfRPU8AsbpTUg8AQkHtKwMYZiFUjNRtMmV"
+        binary_path = "target/deploy/spl_noop.so"
+    }
+
+    deploy_program {
+        program_id = "DELeGGvXpWV2fqJUhqcF5ZSYMS4JTLjteaAMARRSaeSh"
+        binary_path = ".local-tools/delegation-program/target/deploy/dlp.so"
+    }
+
+    deploy_program {
+        program_id = "J6JPeaFMpp9hoha6KGfG2tWTWhAqdtJtWJwrNYDW9SFx"
+        binary_path = "target/deploy/magicblock_usdc_stream.so"
+    }
+
+    set_account {
+        public_key = "mAGicPQYBMvcYveUZA5F5UNNwyHvfYh5xkLS2Fr1mev"
+        lamports = 100000000000
+    }
+}

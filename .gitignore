@@ -1,0 +1,12 @@
+.local-legacy/
+*/.local/
+*/.surfpool/
+*/.local-tools/
+*/target/
+*/node_modules/
+*/dist/
+*/.git/
+magicblock/keys/*.json
+*.log
+*.pid
+/run-everything.sh

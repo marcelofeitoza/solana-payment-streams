@@ -1,0 +1,20 @@
+{
+  "name": "solana-payment-streams-keeper-client",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "tsx client/index.ts demo",
+    "setup": "tsx client/index.ts setup",
+    "init-stream": "tsx client/index.ts init-stream",
+    "run": "tsx client/index.ts run"
+  },
+  "dependencies": {
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

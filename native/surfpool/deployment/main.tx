@@ -1,0 +1,16 @@
+// Surfpool Infrastructure-as-Code for the sole custom executable in this PoC.
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "install_native_usdc_stream" "svm::setup_surfnet" {
+    description = "Install the newly built Pinocchio stream program"
+    rpc_api_url = input.rpc_api_url
+
+    deploy_program {
+        program_id = "2iGXTHjaBJW6auyKm7V3ZcbBcQMfxHJfVoucx8XhCH6V"
+        binary_path = "target/deploy/native_usdc_stream_program.so"
+    }
+}
+
